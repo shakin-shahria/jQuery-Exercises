@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery AJAX Weather Example</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h1>jQuery AJAX Weather Example</h1>
+    <input type="text" id="cityName" class="form-control mt-3" placeholder="Enter city name">
+    <button id="fetchWeatherButton" class="btn btn-primary mt-3">Fetch Weather</button>
+  </div>
+  <div id="weatherContainer" class="mt-4"></div>
+</div>
+
+<script>
+$(document).ready(function() {
+  $('#fetchWeatherButton').on('click', function() {
+    var city = $('#cityName').val();
+    var apiKey = '6656c32a2f21e49f223882df00fe5fe7';
+    var url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    $.ajax({
+      url: url,
+      type: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        $('#weatherContainer').html(`
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Weather in ${data.name}</h5>
+              <p class="card-text">Temperature: ${data.main.temp}°C</p>
+              <p class="card-text">Weather: ${data.weather[0].description}</p>
+              <p class="card-text">Humidity: ${data.main.humidity}%</p>
+              <p class="card-text">Wind Speed: ${data.wind.speed} m/s</p>
+            </div>
+          </div>
+        `);
+      },
+      error: function(xhr, status, error) {
+        $('#weatherContainer').html(`<div class="alert alert-danger">An error occurred: ${status} - ${error}</div>`);
+      }
+    });
+  });
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

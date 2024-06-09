@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery HTML Methods Example</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .content-box {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-top: 20px;
+      background-color: #f8f9fa;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h1>jQuery HTML Methods Example</h1>
+    <button id="setHtmlButton" class="btn btn-primary mt-3">Set HTML</button>
+    <button id="setTextButton" class="btn btn-secondary mt-3">Set Text</button>
+    <button id="appendButton" class="btn btn-success mt-3">Append Content</button>
+    <button id="prependButton" class="btn btn-info mt-3">Prepend Content</button>
+    <button id="afterButton" class="btn btn-warning mt-3">Insert After</button>
+    <button id="beforeButton" class="btn btn-danger mt-3">Insert Before</button>
+    <button id="removeButton" class="btn btn-dark mt-3">Remove Element</button>
+    <button id="emptyButton" class="btn btn-light mt-3">Empty Element</button>
+  </div>
+  
+  <div id="content" class="content-box">
+    <p>This is the original content.</p>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+  $('#setHtmlButton').on('click', function() {
+    $('#content').html('<h2>New HTML Content</h2><p>This content has been set using .html() method.</p>');
+  });
+
+  $('#setTextButton').on('click', function() {
+    $('#content').text('This content has been set using .text() method.');
+  });
+
+  $('#appendButton').on('click', function() {
+    $('#content').append('<p>This content has been appended using .append() method.</p>');
+  });
+
+  $('#prependButton').on('click', function() {
+    $('#content').prepend('<p>This content has been prepended using .prepend() method.</p>');
+  });
+
+  $('#afterButton').on('click', function() {
+    $('#content').after('<div class="content-box"><p>This content has been inserted after using .after() method.</p></div>');
+  });
+
+  $('#beforeButton').on('click', function() {
+    $('#content').before('<div class="content-box"><p>This content has been inserted before using .before() method.</p></div>');
+  });
+
+  $('#removeButton').on('click', function() {
+    $('#content').remove();
+  });
+
+  $('#emptyButton').on('click', function() {
+    $('#content').empty();
+  });
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

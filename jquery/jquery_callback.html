@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Callback Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="box"></div>
+<button id="animateButton">Animate Box</button>
+
+<script>
+$(document).ready(function() {
+  $('#animateButton').on('click', function() {
+    $('#box').animate({ width: '300px' }, 1000, function() {
+      // This is the callback function
+      alert('Animation completed!');
+      $(this).css('background-color', 'red');
+    });
+  });
+
+
+  // with no callback
+    // $("animateButton").click(function(){
+    //     $('#box').animate({ width: '300px' }, 1000);
+    //     alert("Animation completed!");
+    // });
+
+});
+</script>
+
+</body>
+</html>

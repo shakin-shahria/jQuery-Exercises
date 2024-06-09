@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Events Example</title>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+    <div id="myDiv" style="width: 200px; height: 200px; background-color: lightgray;">Hover or Click me</div>
+    <form id="myForm">
+        <input type="text" id="myInput" placeholder="Type something">
+        <select id="mySelect">
+            <option>Option 1</option>
+            <option>Option 2</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+	
+	<div class="list_element">
+		<ul>
+			<li>Bangladesh</li>
+			<li>India</li>
+			<li>Pakistan</li>
+		</ul>
+	</div>
+
+    <p>This is a test Paragraph</p>
+
+    <div id="parentElement">
+        <div class="childElement1">This is a child Element 1</div>
+        <div class="childElement2">This is a child Element 2</div>
+    </div>
+
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Document ready event
+            console.log("Document ready!");
+
+            $("#myButton").click(function() {
+                alert("Button clicked!");
+            });
+
+            $("#myButton").dblclick(function() {
+                alert("Button double-clicked!");
+            });
+
+            $("#myDiv").mouseenter(function() {
+                $(this).css("background-color", "yellow");
+            });
+
+            $("#myDiv").mouseleave(function() {
+                $(this).css("background-color", "lightgray");
+            });
+
+            $("#myDiv").mousedown(function() {
+                $(this).css("border", "2px solid red");
+            });
+
+            $("#myDiv").mouseup(function() {
+                $(this).css("border", "");
+            });
+
+            $("#myDiv").hover(
+                function() {
+                    $(this).css("background-color", "yellow");
+                }, function() {
+                    $(this).css("background-color", "lightgray");
+                }
+            );
+
+            $("#myInput").keypress(function() {
+                console.log("Key pressed!");
+            });
+
+            $("#myInput").keydown(function() {
+                console.log("Key down!");
+            });
+
+            $("#myInput").keyup(function() {
+                console.log("Key up!");
+            });
+
+            $("#myForm").submit(function(event) {
+                event.preventDefault();
+                alert("Form submitted!");
+            });
+
+            $("#mySelect").change(function() {
+                alert("Value changed!");
+            });
+
+            $("#myInput").focus(function() {
+                $(this).css("background-color", "lightblue");
+            });
+
+            $("#myInput").blur(function() {
+                $(this).css("background-color", "");
+            });
+
+            $("#myInput").on("input", function() {
+                console.log("Value changed: " + $(this).val());
+            });
+
+            $(window).resize(function() {
+                console.log("Window resized!");
+            });
+
+            $(window).scroll(function() {
+                console.log("Window scrolled!");
+            });
+
+            $("#myDiv").on("touchstart", function() {
+                console.log("Touch start!");
+            });
+
+            $("#myDiv").on("touchmove", function() {
+                console.log("Touch move!");
+            });
+
+            $("#myDiv").on("touchend", function() {
+                console.log("Touch end!");
+            });
+
+            $("#myDiv").on("touchcancel", function() {
+                console.log("Touch cancel!");
+            });
+        });
+		
+		// on Method Example
+		// $("p").on("click", function(){
+		//   $(this).hide();
+		// });
+
+        // Window load event
+        $(window).on("load", function() {
+            console.log("Window loaded!");
+        });
+
+        // Window unload event
+        $(window).on("unload", function() {
+            console.log("Window unloaded!");
+        });
+		
+		$(document).on('click', 'li', function() {
+		  alert('List item clicked');
+		});
+
+        $("p").on({
+            mouseenter: function(){
+                $(this).css("background-color", "lightgray");
+            },
+            mouseleave: function(){
+                $(this).css("background-color", "lightblue");
+            },
+            click: function(){
+                $(this).css("background-color", "yellow");
+            }
+        });
+
+        // $('#parentElement').on('click', '.childElement1', function() {
+        //     alert('Child element clicked');
+        // });
+
+        $('#parentElement').on('click', function() {
+            alert('Clicked');
+            //$(this).css('color', 'red');
+        }).css('color', 'red');
+		
+		
+		
+		
+    </script>
+</body>
+</html>

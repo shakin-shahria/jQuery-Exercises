@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Selectors Example</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p id="firstPara" class="intro">This is the first paragraph.</p>
+    <p class="intro">This is the second paragraph.</p>
+    <div>
+        <p>This is a paragraph inside a div.</p>
+        <span>This is a span inside a div.</span>
+    </div>
+    <div id="emptyDiv"></div>
+    <input type="text" name="username">
+    <input type="checkbox" name="subscribe" checked>
+    <select>
+        <option>Option 1</option>
+        <option selected>Option 2</option>
+    </select>
+    <img src="image.jpg" alt="Sample Image">
+
+    <button id="testSelectors">Test Selectors</button>
+
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#testSelectors").click(function() {
+                // Examples of various selectors in action
+                $("p").css("color", "blue");
+                $("#firstPara").hide();
+                $(".intro").addClass("highlight");
+                $("a[target]").css("color", "red");
+                $("input[type='text']").val("Hello World");
+                $("a[href^='https']").addClass("secure-link");
+                $("img[src$='.jpg']").css("border", "1px solid black");
+                $("input[name*='user']").css("background-color", "yellow");
+                $("div p").css("color", "green");
+                $("ul > li").css("font-weight", "bold");
+                $("h2 + p").css("margin-top", "0");
+                $("h2 ~ p").css("color", "purple");
+                $(":input").css("border", "1px solid red");
+                $(":text").val("Default text");
+                $(":checked").css("outline", "2px solid blue");
+                $("option:selected").each(function() {
+                    console.log($(this).text());
+                });
+                $("p:contains('jQuery')").css("font-style", "italic");
+                $("div:empty").css("background-color", "gray");
+                $("div:has(p)").css("border", "1px solid orange");
+                $("div:parent").css("background-color", "lightblue");
+                $("div:hidden").show();
+                $("div:visible").css("border", "1px solid green");
+            });
+        });
+    </script>
+</body>

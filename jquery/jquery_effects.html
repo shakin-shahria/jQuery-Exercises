@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Effects Example</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #panel {
+      display: none;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      margin-top: 20px;
+    }
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h1>jQuery Effects Demo</h1>
+    <p class="lead">Click the buttons below to see various jQuery effects in action.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <button id="showButton" class="btn btn-primary m-1">Show Panel</button>
+      <button id="hideButton" class="btn btn-secondary m-1">Hide Panel</button>
+      <button id="toggleButton" class="btn btn-success m-1">Toggle Panel</button>
+      <button id="fadeInButton" class="btn btn-info m-1">Fade In Image</button>
+      <button id="fadeOutButton" class="btn btn-warning m-1">Fade Out Image</button>
+      <button id="fadeToggleButton" class="btn btn-danger m-1">Fade Toggle Image</button>
+      <button id="fadeToButton" class="btn btn-dark m-1">Fade To 50%</button>
+      <button id="slideDownButton" class="btn btn-primary m-1">Slide Down Panel</button>
+      <button id="slideUpButton" class="btn btn-secondary m-1">Slide Up Panel</button>
+      <button id="slideToggleButton" class="btn btn-success m-1">Slide Toggle Panel</button>
+      <button id="animateButton" class="btn btn-info m-1">Animate Box</button>
+      <button id="stopButton" class="btn btn-warning m-1">Stop Animation</button>
+    </div>
+  </div>
+
+  <div id="panel" class="text-center">This is a panel.</div>
+  <div class="text-center mt-4">
+    <img id="image" src="https://via.placeholder.com/150" class="rounded" alt="Placeholder Image" style="display:none;" />
+  </div>
+  <div id="box" class="rounded"></div>
+</div>
+
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
